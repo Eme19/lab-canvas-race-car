@@ -80,8 +80,10 @@ function crash(obstacle) {
   let obstaclesFrequency = 0;
 
   function updateCanvas() {
-  // ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // currentGame.car.drawCar();
+    gameBoard.move()
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  gameBoard.draw()
+  currentGame.car.drawCar();
   obstaclesFrequency++;
 
    if(obstaclesFrequency %100 === 1){
@@ -98,10 +100,10 @@ function crash(obstacle) {
     currentGame.obstacles.push(newObstacle);
     
 }
-gameBoard.move()
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-currentGame.car.drawCar();
-gameBoard.draw()
+// // gameBoard.move()
+// ctx.clearRect(0, 0, canvas.width, canvas.height);
+// currentGame.car.drawCar();
+// // gameBoard.draw()
 
 for(let i = 0; i<currentGame.obstacles.length; i++) { 
   currentGame.obstacles[i].y += 1; currentGame.obstacles[i].drawObstacle();
